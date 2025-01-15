@@ -20,7 +20,7 @@ Photo Organizer Kit is a collection of Python tools designed to help you organiz
 
 
 ## Photo Archive Checker
-This Python script compares files in two folders (source and destination) using MD5 hash values to identify missing or corrupted files in the destination folder.
+The Photo Archive Checker is a Python script designed to ensure that all files from a source folder have been correctly archived to a destination folder. This is particularly useful for verifying that no files were accidentally missed or corrupted during the archiving process.
 
 ### How It Works
 1. Scan Folders: The script scans both the source and destination folders for files with supported extensions.
