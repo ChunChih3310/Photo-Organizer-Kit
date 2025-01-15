@@ -1,5 +1,6 @@
 import os
 import hashlib
+import argparse
 from tqdm import tqdm
 
 def compute_md5(file_path, chunk_size=8192):
@@ -17,26 +18,11 @@ def compute_md5(file_path, chunk_size=8192):
         print(f"[WARNING] Unable to read file {file_path}: {e}")
         return None
 
-def main():
-    source_folder = "Path to the source folder"
-    dest_folder = "Path to the destination folder"
-
+def main(source_folder, dest_folder):
     # List of file extensions to check
     file_extensions = [
-        ".jpg",
-        ".arw",
-        ".raw",
-        ".png",
-        ".jpeg",
-        ".tif",
-        ".tiff",
-        ".heic",
-        ".gif",
-        ".bmp",
-        ".webp",
-        ".svg",
-        ".mp4",
-        ".mov",
+        ".jpg", ".arw", ".raw", ".png", ".jpeg", ".tif", ".tiff", ".heic",
+        ".gif", ".bmp", ".webp", ".svg", ".mp4", ".mov",
     ]
 
     # ---------------------------------------------------------
@@ -96,4 +82,10 @@ def main():
             print(f)
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="File Integrity Checker")
+    parser.add_argument("--source", required=True, help="Path to the source folder")
+    parser.add_argument("--destination", required=True, help="Path to the destination folder")
+
+    args = parser.parse_args()
+
+    main(args.source, args.destination)
